@@ -81,7 +81,10 @@ class ModuleFileCmdLoader(CmdLoader):
         if not module:
             return None
         class_name = py_file_to_class_name(py_file)
-        return getattr(module, class_name)
+        clazz = getattr(module, class_name)
+        if clazz:
+            return clazz()
+        return None
 
     def set_cmd_dir(self, cmd_dir):
         """

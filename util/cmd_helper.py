@@ -109,11 +109,13 @@ class CmdHelper(object):
         return False
 
 
-def run_cmd(argv, helper: CmdHelper, loader: CmdLoader):
+def run_cmd(argv, loader: CmdLoader, helper: CmdHelper = None):
+    if helper is None:
+        helper = CmdHelper()
     helper.set_cmd_loader(loader)
     helper.assemble()
 
-    if len(argv) < 2 or not argv[1]:
+    if len(argv) < 2 or not argv[1] or argv[1] == '-h':
         helper.usage()
         return
 
