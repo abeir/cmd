@@ -4,8 +4,9 @@ import re
 import sys
 
 from command import Cmd
-from util import CommandNotFoundError, CmdHelper
+from util import CmdHelper
 from util.cmd_loader import CmdLoader
+from util.exception import CommandNotFoundError
 
 USAGE_HEAD = 'Run command.\ncmd.py <sub-command> <argv>'
 USAGE_SUBCMD_FMT = "\n{0}:"
